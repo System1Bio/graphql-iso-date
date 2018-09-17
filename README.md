@@ -1,3 +1,5 @@
+NOTE - the only change I made to this library was to stop the Date object from parsing as a JS Date (which gives you the potential for timezone problems).  Now it's a string.
+
 # GraphQL ISO Date
 
 [![npm version](https://badge.fury.io/js/graphql-iso-date.svg)](http://badge.fury.io/js/graphql-iso-date)
