@@ -53,7 +53,7 @@ var config = {
     }
 
     if ((0, _utils.validateDate)(value)) {
-      return (0, _utils.parseDate)(value);
+      return value;
     }
     throw new TypeError('Date cannot represent an invalid date-string ' + value + '.');
   },
@@ -64,7 +64,7 @@ var config = {
     var value = ast.value;
 
     if ((0, _utils.validateDate)(value)) {
-      return (0, _utils.parseDate)(value);
+      return value;
     }
     throw new TypeError('Date cannot represent an invalid date-string ' + String(value) + '.');
   }

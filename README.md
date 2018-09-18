@@ -1,4 +1,6 @@
-NOTE - the only change I made to this library was to stop the Date object from parsing as a JS Date (which gives you the potential for timezone problems).  Now it's a string.
+NOTE - Added the new ISODate class for when you want dates, but 
+you never want them covnerted back to strings, to avoid javascript
+timezone conversion.
 
 # GraphQL ISO Date
 

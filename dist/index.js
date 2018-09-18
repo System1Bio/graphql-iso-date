@@ -31,4 +31,13 @@ Object.defineProperty(exports, 'GraphQLDateTime', {
   }
 });
 
+var _isoDate = require('./isoDate');
+
+Object.defineProperty(exports, 'GraphQLISODate', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_isoDate).default;
+  }
+});
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }

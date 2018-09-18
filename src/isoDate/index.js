@@ -24,11 +24,11 @@ import { validateDate, validateJSDate, serializeDate, parseDate } from '../utils
  *    RFC 3339 date strings to RFC 3339 date strings.
  */
 const config: GraphQLScalarTypeConfig<Date, string> = {
-  name: 'Date',
+  name: 'ISODate',
   description: 'A date string, such as 2007-12-03, compliant with the `full-date` ' +
                'format outlined in section 5.6 of the RFC 3339 profile of the ' +
                'ISO 8601 standard for representation of dates and times using ' +
-               'the Gregorian calendar.',
+               'the Gregorian calendar. This stays a string and is not converted to date',
   serialize (value) {
     if (value instanceof Date) {
       if (validateJSDate(value)) {
@@ -57,7 +57,7 @@ const config: GraphQLScalarTypeConfig<Date, string> = {
     }
 
     if (validateDate(value)) {
-      return parseDate(value)
+      return value
     }
     throw new TypeError(
       `Date cannot represent an invalid date-string ${value}.`
@@ -71,7 +71,7 @@ const config: GraphQLScalarTypeConfig<Date, string> = {
     }
     const { value } = ast
     if (validateDate(value)) {
-      return parseDate(value)
+      return value
     }
     throw new TypeError(
       `Date cannot represent an invalid date-string ${String(value)}.`
