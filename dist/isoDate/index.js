@@ -30,8 +30,8 @@ var _utils = require('../utils');
  */
 
 var config = {
-  name: 'Date',
-  description: 'A date string, such as 2007-12-03, compliant with the `full-date` ' + 'format outlined in section 5.6 of the RFC 3339 profile of the ' + 'ISO 8601 standard for representation of dates and times using ' + 'the Gregorian calendar.',
+  name: 'ISODate',
+  description: 'A date string, such as 2007-12-03, compliant with the `full-date` ' + 'format outlined in section 5.6 of the RFC 3339 profile of the ' + 'ISO 8601 standard for representation of dates and times using ' + 'the Gregorian calendar. This stays a string and is not converted to date',
   serialize: function serialize(value) {
     if (value instanceof Date) {
       if ((0, _utils.validateJSDate)(value)) {
@@ -40,7 +40,7 @@ var config = {
       throw new TypeError('Date cannot represent an invalid Date instance');
     } else if (typeof value === 'string' || value instanceof String) {
       if ((0, _utils.validateDate)(value)) {
-        return value;
+        return value.split('T')[0];
       }
       throw new TypeError('Date cannot represent an invalid date-string ' + value + '.');
     } else {
